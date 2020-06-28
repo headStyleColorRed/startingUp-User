@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+  user-server:
+    container_name: user-server
+    restart: always
+    networks: 
+      - Starting-up
+    build: .
+    ports:
+      - "8889:8889"
+  user-mongo:
+    container_name: user_DB
+    networks: 
+      - Starting-up
+    image: mongo
+    ports:
+      - "27018:27017"
+
+networks:
+  Starting-up:
+    name: Starting-up
