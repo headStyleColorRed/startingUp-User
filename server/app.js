@@ -32,6 +32,7 @@ app.use(multer({
 
 // Routes
 app.use("/user", require("./requests/registering"))
+app.use("/location", require("./requests/location"))
 
 
 // Open port
@@ -51,12 +52,6 @@ mongoose.connect(mongoURI, { useNewUrlParser: true }, (err) => {
 
 app.get("/", (req, res) => {
 	res.send("StartingUp-User is up and running! :D")
-})
-
-
-
-app.post("/user/getImage", (req, res) => {
-	res.status(200).send("File downloaded succesfully")
 })
 
 app.get("/users", async (req, res) => {					//	 B O R R A R
